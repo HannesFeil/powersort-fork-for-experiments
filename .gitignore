@@ -30,3 +30,11 @@
 *.exe
 *.out
 *.app
+
+# Direnv cache
+/.direnv
+
+# Cmake output
+/cmake-build-profiling
+/cmake-build-release
+/cmake-build-relwithdebuginfo
