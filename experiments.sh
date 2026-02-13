@@ -2,7 +2,7 @@
 BUILDDIR=cmake-build-release
 mkdir -p $BUILDDIR
 cd $BUILDDIR
-cmake -DCMAKE_BUILD_TYPE=Release ..
+cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_POLICY_VERSION_MINIMUM=3.5 ..
 cmake --build .
 cd ..
 
@@ -61,16 +61,16 @@ ${PREFIX}/mergesorts-count-cmps  101  10000000 runs-sqrtn '*' ${SEED} times-runs
 ${PREFIX}/mergesorts-count-cmps  101 100000000 runs-sqrtn '*' ${SEED} times-runs-100m-cmps   >> times-runs-cmps.out
 
 
+# TODO: do this one too
+# echo "Experiment 6: Cachegrind"
 
-echo "Experiment 6: Cachegrind"
-
-BUILDDIR=cmake-build-relwithdebuginfo
-mkdir -p $BUILDDIR
-cd $BUILDDIR
-cmake -D CMAKE_BUILD_TYPE=RelWithDebInfo ..
-cmake --build .
-cd ..
-for algo in 0 1 2 3 5
-do 
-	valgrind --tool=callgrind --simulate-cache=yes  ${BUILDDIR}/src/mergesorts 1 100000000 runs-sqrtn $algo | tee -a cachegrind-100m-ints
-done
+# BUILDDIR=cmake-build-relwithdebuginfo
+# mkdir -p $BUILDDIR
+# cd $BUILDDIR
+# cmake -D CMAKE_BUILD_TYPE=RelWithDebInfo -DCMAKE_POLICY_VERSION_MINIMUM=3.5 ..
+# cmake --build .
+# cd ..
+# for algo in 0 1 2 3 5
+# do
+# 	valgrind --tool=callgrind --simulate-cache=yes  ${BUILDDIR}/src/mergesorts 1 100000000 runs-sqrtn $algo | tee -a cachegrind-100m-ints
+# done
