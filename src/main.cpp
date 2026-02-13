@@ -92,10 +92,10 @@ void timeSorts(int reps, std::vector<int> sizes, unsigned long seed, inputs::inp
 	csv.open(filename);
 
 	if (typeid(Elem).hash_code() == typeid(data::comp_counter).hash_code()) {
-		csv << "algo,ms,n,input,input-num,merge-cost,buffer-cost,comparisons" << std::endl;
+		csv << "algo,nano,n,input,input-num,merge-cost,buffer-cost,comparisons" << std::endl;
 		std::cout << "Counting comparisons." << std::endl;
 	} else {
-		csv << "algo,ms,n,input,input-num,merge-cost" << std::endl;
+		csv << "algo,nano,n,input,input-num,merge-cost" << std::endl;
 		std::cout << "Not counting comparisons." << std::endl;
 	}
     if (algorithms::COUNT_MERGE_COSTS) std::cout << "Counting merge costs." << std::endl;
@@ -148,12 +148,12 @@ void timeSorts(int reps, std::vector<int> sizes, unsigned long seed, inputs::inp
 						exit(3);
 					}
 				}
-				double msDiff = std::chrono::duration_cast<std::chrono::nanoseconds>(end-begin).count() / 1e6;
+				double nanoDiff = std::chrono::duration_cast<std::chrono::nanoseconds>(end-begin).count();
 				if (r != 0) {
 					// Skip first iteration, slower because of cold cache
                     // and buffer allocation (latter is reused afterwards).
-					samples.add_sample(msDiff);
-					csv << algo->name() << "," << msDiff << "," << size << "," << inputs.name() << "," << r << "," << algorithms::totalMergeCosts << "," << algorithms::totalBufferCosts;
+					samples.add_sample(nanoDiff);
+					csv << algo->name() << "," << nanoDiff << "," << size << "," << inputs.name() << "," << r << "," << algorithms::totalMergeCosts << "," << algorithms::totalBufferCosts;
 					if (typeid(Elem).hash_code() == typeid(comp_counter).hash_code()) {
 						csv << "," << nCmps;
 					}
@@ -161,7 +161,7 @@ void timeSorts(int reps, std::vector<int> sizes, unsigned long seed, inputs::inp
 					csv.flush();
 				}
 			}
-			std::cout << "avg-ms=" << samples.meanSignificantDigits() << ",\t algo=" << algo->name() << ", n=" << size << "     (" << total<<")\t" << samples << std::endl;
+			std::cout << "avg-nano=" << samples.meanSignificantDigits() << ",\t algo=" << algo->name() << ", n=" << size << "     (" << total<<")\t" << samples << std::endl;
 
 			delete[] input;
 		}
