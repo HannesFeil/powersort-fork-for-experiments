@@ -49,7 +49,7 @@ std::vector<std::unique_ptr<algorithms::sorter<Iterator>>> contestants() {
     algos.push_back(std::make_unique<algorithms::powersort_4way<Iterator,24,algorithms::WILLEM_VALUES>>());
     algos.push_back(std::make_unique<algorithms::powersort_4way<Iterator,24,algorithms::WILLEM_WITH_INDICES>>());
 #endif // EXCLUDE_POWERSORTS_WITH_SENTINEL
-    algos.push_back(std::make_unique<algorithms::powersort_4way<Iterator,24,algorithms::GENERAL_BY_STAGES>>());
+    algos.push_back(std::make_unique<algorithms::powersort_4way<Iterator,24,algorithms::GENERAL_INDICES>>());
 
 
 	algos.push_back(std::make_unique<algorithms::peeksort<Iterator, 24>>());
