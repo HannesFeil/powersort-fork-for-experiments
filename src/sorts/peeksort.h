@@ -129,7 +129,7 @@ namespace algorithms {
 						std::reverse(i,j);
 					}
 				}
-				if (i == begin && j == end) return; // single run
+
 				if (m - i < j - m) {
 					// |XX     x|xxxx   X|
 					peek_sort(begin, i, leftRunEnd, i-1);
