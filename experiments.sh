@@ -57,6 +57,12 @@ ${PREFIX}/mergesorts-count-cmps 1001   1000000 runs-sqrtn '*' ${SEED} results/ti
 ${PREFIX}/mergesorts-count-cmps  101  10000000 runs-sqrtn '*' ${SEED} results/times-runs-int-cmp-e7 >> results/times-runs-cmps.out
 ${PREFIX}/mergesorts-count-cmps  101 100000000 runs-sqrtn '*' ${SEED} results/times-runs-int-cmp-e8 >> results/times-runs-cmps.out
 
+${PREFIX}/mergesorts-count-cmps 1001     10000 random-permutations '*' ${SEED} results/times-rp-int-cmp-e4 >> results/times-rp-cmps.out
+${PREFIX}/mergesorts-count-cmps 1001    100000 random-permutations '*' ${SEED} results/times-rp-int-cmp-e5 >> results/times-rp-cmps.out
+${PREFIX}/mergesorts-count-cmps 1001   1000000 random-permutations '*' ${SEED} results/times-rp-int-cmp-e6 >> results/times-rp-cmps.out
+${PREFIX}/mergesorts-count-cmps  101  10000000 random-permutations '*' ${SEED} results/times-rp-int-cmp-e7 >> results/times-rp-cmps.out
+${PREFIX}/mergesorts-count-cmps  101 100000000 random-permutations '*' ${SEED} results/times-rp-int-cmp-e8 >> results/times-rp-cmps.out
+
 
 # TODO: do this one too
 # echo "Experiment 6: Cachegrind"
