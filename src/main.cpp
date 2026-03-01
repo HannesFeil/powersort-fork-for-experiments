@@ -80,13 +80,6 @@ void timeSorts(int reps, std::vector<int> sizes, unsigned long seed, inputs::inp
 		std::time_t now = std::time(nullptr);
 		std::tm tm = *std::localtime(&now);
 		longFilename << outFileName;
-		longFilename << std::put_time(&tm, "-%Y-%m-%d_%H-%M-%S");
-		longFilename << "-reps" << reps;
-		longFilename << "-ns";
-		for (int n : sizes) longFilename << "-" << n;
-		longFilename << "-seed" << seed;
-		longFilename << "-elemT" << typeid(Elem).name();
-		longFilename << ".csv";
 		filename = longFilename.str();
 	}
 	csv.open(filename);

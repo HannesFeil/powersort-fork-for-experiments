@@ -15,53 +15,53 @@ mkdir -p ./results
 
 echo "Experiment 1: int, random runs, various n"
 
-${PREFIX}/mergesorts 1001     10000 runs-sqrtn '*' ${SEED} results/times-runs-int-e4 >> results/times-runs-int.out
-${PREFIX}/mergesorts 1001    100000 runs-sqrtn '*' ${SEED} results/times-runs-int-e5 >> results/times-runs-int.out
-${PREFIX}/mergesorts 1001   1000000 runs-sqrtn '*' ${SEED} results/times-runs-int-e6 >> results/times-runs-int.out
-${PREFIX}/mergesorts  101  10000000 runs-sqrtn '*' ${SEED} results/times-runs-int-e7 >> results/times-runs-int.out
-${PREFIX}/mergesorts  101 100000000 runs-sqrtn '*' ${SEED} results/times-runs-int-e8 >> results/times-runs-int.out
+${PREFIX}/mergesorts 1001     10000 runs-sqrtn '*' ${SEED} results/times-runs-int-e4.csv >> results/times-runs-int.out
+${PREFIX}/mergesorts 1001    100000 runs-sqrtn '*' ${SEED} results/times-runs-int-e5.csv >> results/times-runs-int.out
+${PREFIX}/mergesorts 1001   1000000 runs-sqrtn '*' ${SEED} results/times-runs-int-e6.csv >> results/times-runs-int.out
+${PREFIX}/mergesorts  101  10000000 runs-sqrtn '*' ${SEED} results/times-runs-int-e7.csv >> results/times-runs-int.out
+${PREFIX}/mergesorts  101 100000000 runs-sqrtn '*' ${SEED} results/times-runs-int-e8.csv >> results/times-runs-int.out
 
 
 echo "Experiment 2: 10^7 ints distribution, random runs"
 
 for runs in 3 30 300 3000 30000 300000 3000000
 do
-  ${PREFIX}/mergesorts 101 10000000 runs$runs '*' ${SEED} results/times-runs${runs}-int-e7 >> results/times-runs${runs}-int.out
+  ${PREFIX}/mergesorts 101 10000000 runs$runs '*' ${SEED} results/times-runs${runs}-int-e7.csv >> results/times-runs${runs}-int.out
 done
 
 
 
 echo "Experiment 3: long+pointer, random runs, various n"
 
-${PREFIX}/mergesorts-long+pointer 1001     10000 runs-sqrtn '*' ${SEED} results/times-runs-l+p-e4 >> results/times-runs-l+p.out
-${PREFIX}/mergesorts-long+pointer 1001    100000 runs-sqrtn '*' ${SEED} results/times-runs-l+p-e5 >> results/times-runs-l+p.out
-${PREFIX}/mergesorts-long+pointer 1001   1000000 runs-sqrtn '*' ${SEED} results/times-runs-l+p-e6 >> results/times-runs-l+p.out
-${PREFIX}/mergesorts-long+pointer  101  10000000 runs-sqrtn '*' ${SEED} results/times-runs-l+p-e7 >> results/times-runs-l+p.out
-${PREFIX}/mergesorts-long+pointer  101 100000000 runs-sqrtn '*' ${SEED} results/times-runs-l+p-e8 >> results/times-runs-l+p.out
+${PREFIX}/mergesorts-long+pointer 1001     10000 runs-sqrtn '*' ${SEED} results/times-runs-l+p-e4.csv >> results/times-runs-l+p.out
+${PREFIX}/mergesorts-long+pointer 1001    100000 runs-sqrtn '*' ${SEED} results/times-runs-l+p-e5.csv >> results/times-runs-l+p.out
+${PREFIX}/mergesorts-long+pointer 1001   1000000 runs-sqrtn '*' ${SEED} results/times-runs-l+p-e6.csv >> results/times-runs-l+p.out
+${PREFIX}/mergesorts-long+pointer  101  10000000 runs-sqrtn '*' ${SEED} results/times-runs-l+p-e7.csv >> results/times-runs-l+p.out
+${PREFIX}/mergesorts-long+pointer  101 100000000 runs-sqrtn '*' ${SEED} results/times-runs-l+p-e8.csv >> results/times-runs-l+p.out
 
 
 echo "Experiment 4: int, random permutations, various n"
 
-${PREFIX}/mergesorts 1001     10000 random-permutations '*' ${SEED} results/times-rp-int-e4 >> results/times-rp-int.out
-${PREFIX}/mergesorts 1001    100000 random-permutations '*' ${SEED} results/times-rp-int-e5 >> results/times-rp-int.out
-${PREFIX}/mergesorts 1001   1000000 random-permutations '*' ${SEED} results/times-rp-int-e6 >> results/times-rp-int.out
-${PREFIX}/mergesorts  101  10000000 random-permutations '*' ${SEED} results/times-rp-int-e7 >> results/times-rp-int.out
-${PREFIX}/mergesorts  101 100000000 random-permutations '*' ${SEED} results/times-rp-int-e8 >> results/times-rp-int.out
+${PREFIX}/mergesorts 1001     10000 random-permutations '*' ${SEED} results/times-rp-int-e4.csv >> results/times-rp-int.out
+${PREFIX}/mergesorts 1001    100000 random-permutations '*' ${SEED} results/times-rp-int-e5.csv >> results/times-rp-int.out
+${PREFIX}/mergesorts 1001   1000000 random-permutations '*' ${SEED} results/times-rp-int-e6.csv >> results/times-rp-int.out
+${PREFIX}/mergesorts  101  10000000 random-permutations '*' ${SEED} results/times-rp-int-e7.csv >> results/times-rp-int.out
+${PREFIX}/mergesorts  101 100000000 random-permutations '*' ${SEED} results/times-rp-int-e8.csv >> results/times-rp-int.out
 
 
 echo "Experiment 5: count comparisons and merge cost, random runs, various n"
 
-${PREFIX}/mergesorts-count-cmps 1001     10000 runs-sqrtn '*' ${SEED} results/times-runs-int-cmp-e4 >> results/times-runs-cmps.out
-${PREFIX}/mergesorts-count-cmps 1001    100000 runs-sqrtn '*' ${SEED} results/times-runs-int-cmp-e5 >> results/times-runs-cmps.out
-${PREFIX}/mergesorts-count-cmps 1001   1000000 runs-sqrtn '*' ${SEED} results/times-runs-int-cmp-e6 >> results/times-runs-cmps.out
-${PREFIX}/mergesorts-count-cmps  101  10000000 runs-sqrtn '*' ${SEED} results/times-runs-int-cmp-e7 >> results/times-runs-cmps.out
-${PREFIX}/mergesorts-count-cmps  101 100000000 runs-sqrtn '*' ${SEED} results/times-runs-int-cmp-e8 >> results/times-runs-cmps.out
+${PREFIX}/mergesorts-count-cmps 1001     10000 runs-sqrtn '*' ${SEED} results/times-runs-int-cmp-e4.csv >> results/times-runs-cmps.out
+${PREFIX}/mergesorts-count-cmps 1001    100000 runs-sqrtn '*' ${SEED} results/times-runs-int-cmp-e5.csv >> results/times-runs-cmps.out
+${PREFIX}/mergesorts-count-cmps 1001   1000000 runs-sqrtn '*' ${SEED} results/times-runs-int-cmp-e6.csv >> results/times-runs-cmps.out
+${PREFIX}/mergesorts-count-cmps  101  10000000 runs-sqrtn '*' ${SEED} results/times-runs-int-cmp-e7.csv >> results/times-runs-cmps.out
+${PREFIX}/mergesorts-count-cmps  101 100000000 runs-sqrtn '*' ${SEED} results/times-runs-int-cmp-e8.csv >> results/times-runs-cmps.out
 
-${PREFIX}/mergesorts-count-cmps 1001     10000 random-permutations '*' ${SEED} results/times-rp-int-cmp-e4 >> results/times-rp-cmps.out
-${PREFIX}/mergesorts-count-cmps 1001    100000 random-permutations '*' ${SEED} results/times-rp-int-cmp-e5 >> results/times-rp-cmps.out
-${PREFIX}/mergesorts-count-cmps 1001   1000000 random-permutations '*' ${SEED} results/times-rp-int-cmp-e6 >> results/times-rp-cmps.out
-${PREFIX}/mergesorts-count-cmps  101  10000000 random-permutations '*' ${SEED} results/times-rp-int-cmp-e7 >> results/times-rp-cmps.out
-${PREFIX}/mergesorts-count-cmps  101 100000000 random-permutations '*' ${SEED} results/times-rp-int-cmp-e8 >> results/times-rp-cmps.out
+${PREFIX}/mergesorts-count-cmps 1001     10000 random-permutations '*' ${SEED} results/times-rp-int-cmp-e4.csv >> results/times-rp-cmps.out
+${PREFIX}/mergesorts-count-cmps 1001    100000 random-permutations '*' ${SEED} results/times-rp-int-cmp-e5.csv >> results/times-rp-cmps.out
+${PREFIX}/mergesorts-count-cmps 1001   1000000 random-permutations '*' ${SEED} results/times-rp-int-cmp-e6.csv >> results/times-rp-cmps.out
+${PREFIX}/mergesorts-count-cmps  101  10000000 random-permutations '*' ${SEED} results/times-rp-int-cmp-e7.csv >> results/times-rp-cmps.out
+${PREFIX}/mergesorts-count-cmps  101 100000000 random-permutations '*' ${SEED} results/times-rp-int-cmp-e8.csv >> results/times-rp-cmps.out
 
 
 # TODO: do this one too
@@ -75,5 +75,5 @@ ${PREFIX}/mergesorts-count-cmps  101 100000000 random-permutations '*' ${SEED} r
 # cd ..
 # for algo in 0 1 2 3 5
 # do
-# 	valgrind --tool=callgrind --simulate-cache=yes  ${BUILDDIR}/src/mergesorts 1 100000000 runs-sqrtn $algo | tee -a cachegrind-ints-e8
+# 	valgrind --tool=callgrind --simulate-cache=yes  ${BUILDDIR}/src/mergesorts 1 100000000 runs-sqrtn $algo | tee -a cachegrind-ints-e8.csv
 # done
